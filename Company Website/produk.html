@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 0; /* Added more padding to move content down */
+            border-bottom: 2px solid #ccc;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Adjusted flex direction for responsiveness */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-decoration: none;
+            color: #333;
+            font-size: 25px;
+            margin: 10px 0; /* Added margin for spacing */
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px; /* Added margin for spacing */
+        }
+
+        li {
+            margin: 0;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        li a:hover {
+            color: #007bff;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Adjusted flex-wrap for responsiveness */
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            width: 300px; /* Adjusted card width for responsiveness */
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            max-width: 100%; /* Ensures images don't exceed the card width */
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        footer {
+            background-color: #287FB3;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        @media (max-width: 767px) {
+            /* Adjust styles for screens smaller than 767px (mobile) */
+            h1 {
+                font-size: 20px;
+            }
+
+            ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            .card {
+                width: 100%; /* Full width for mobile */
+            }
+        }
+
+        .search-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0; /* Add margin for spacing */
+    }
+
+    .search-input {
+        margin-right: 10px;
+    }
+
+
+    .hubungi-btn {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff; /* Warna teks putih */
+    background-color: #fff; /* Warna latar belakang sebelum hover */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-decoration: none; /* Menghilangkan garis bawah */
+    transition: background-color 0.3s ease; /* Efek transisi pada latar belakang */
+}
+
+.hubungi-btn:hover {
+    background-color: #a0c1e4; /* Warna latar belakang saat hover */
+    color: #000; /* Mengubah warna teks pada hover menjadi hitam */
+}
+
+
+.card img {
+            max-width: 100%;
+            height: 200px; /* Set a fixed height for the card images */
+            object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <img src="img/mjl logo.jpeg" alt="">
+            <h1>PT MUKTI JAYA LESTARI</h1>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="active"><a href="produk.html">PRODUK</a></li>
+                <li><a href="jasa.html">JASA LAYANAN</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <form class="search-form">
+        <input type="text" placeholder="Search..." class="search-input">
+        <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+    </form>
+
+    <script>
+        function search() {
+        // Get the input value
+        var searchTerm = document.querySelector('.search-input').value.toLowerCase();
+
+        // Get all card texts
+        var cardTexts = document.querySelectorAll('.card-text');
+
+        // Loop through card texts and hide/show cards based on search term
+        cardTexts.forEach(function (cardText) {
+            var text = cardText.textContent.toLowerCase();
+            var card = cardText.closest('.card');
+
+            if (text.includes(searchTerm)) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    }
+    </script>
+
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="img/paving 20x20.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Paving 20 X 20 </p>
+                <button class="btn btn-primary hubungi-btn"><a href="https://wa.me/6282223848887">Hubungi</a></button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="img/expose.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Bata Expose 20 X 12,5</p>
+                <button class="btn btn-primary hubungi-btn"><a href="https://wa.me/6282223848887">Hubungi</a></button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="img/Interlock 20x12,5.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Bata Interlock 20 X 12,5</p>
+                <button class="btn btn-primary hubungi-btn"><a href="https://wa.me/6282223848887">Hubungi</a></button>
+            </div>
+        </div>
+
+    <!-- End of the section for the button to page 2 -->
+</body>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <small>Copyright &copy; 2023 - Mukti Jaya Lestari. All Right Reserved</small>
+        </div>
+    </footer>
+
+</body>
+</html>
